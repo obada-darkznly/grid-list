@@ -41,6 +41,6 @@ class ImageListCell: UICollectionViewCell {
     func populateWith(_ galleryItem: GalleryItem) {
         imageView.sd_setImage(with: galleryItem.image)
         titleLabel.text = galleryItem.title
-        descriptionLabel.text = galleryItem.desctiption
+        descriptionLabel.text = galleryItem.description
     }
 }
