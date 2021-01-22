@@ -40,10 +40,10 @@
             </objects>
             <point key="canvasLocation" x="332" y="-274"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="W93-MZ-w1X">
             <objects>
-                <tabBarController id="GsD-41-vvP" sceneMemberID="viewController">
+                <tabBarController id="GsD-41-vvP" customClass="TabViewController" customModule="GridList" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Izh-T2-sS5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
