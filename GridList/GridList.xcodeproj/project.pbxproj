@@ -14,6 +14,9 @@
 		AF0434F225BAD91B000F9073 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF0434F125BAD91B000F9073 /* Assets.xcassets */; };
 		AF0434F525BAD91B000F9073 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF0434F325BAD91B000F9073 /* LaunchScreen.storyboard */; };
 		AF4AF2F825BAE0FF00944A79 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4AF2F725BAE0FE00944A79 /* TabViewController.swift */; };
+		AF4C045725BAE89800274C82 /* ImageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4C045625BAE89800274C82 /* ImageListViewController.swift */; };
+		AF4C045B25BAE9E400274C82 /* ImageListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4C045A25BAE9E400274C82 /* ImageListCell.swift */; };
+		AF4C045F25BAEC5C00274C82 /* ImageListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF4C045E25BAEC5C00274C82 /* ImageListCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		AF0434F425BAD91B000F9073 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF0434F625BAD91B000F9073 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF4AF2F725BAE0FE00944A79 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		AF4C045625BAE89800274C82 /* ImageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListViewController.swift; sourceTree = "<group>"; };
+		AF4C045A25BAE9E400274C82 /* ImageListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListCell.swift; sourceTree = "<group>"; };
+		AF4C045E25BAEC5C00274C82 /* ImageListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageListCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,14 @@
 			path = GridList;
 			sourceTree = "<group>";
 		};
+		AF4C045925BAE9B600274C82 /* XIBViews */ = {
+			isa = PBXGroup;
+			children = (
+				AF4C045E25BAEC5C00274C82 /* ImageListCell.xib */,
+			);
+			path = XIBViews;
+			sourceTree = "<group>";
+		};
 		AF4FE8FF25BADE46001DC3E7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +110,8 @@
 		AF4FE90025BADEDF001DC3E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AF4C045925BAE9B600274C82 /* XIBViews */,
+				AF4C045A25BAE9E400274C82 /* ImageListCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -104,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				AF4AF2F725BAE0FE00944A79 /* TabViewController.swift */,
+				AF4C045625BAE89800274C82 /* ImageListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -215,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF0434F525BAD91B000F9073 /* LaunchScreen.storyboard in Resources */,
+				AF4C045F25BAEC5C00274C82 /* ImageListCell.xib in Resources */,
 				AF0434F225BAD91B000F9073 /* Assets.xcassets in Resources */,
 				AF0434F025BAD91A000F9073 /* Main.storyboard in Resources */,
 			);
@@ -270,7 +288,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF4AF2F825BAE0FF00944A79 /* TabViewController.swift in Sources */,
+				AF4C045B25BAE9E400274C82 /* ImageListCell.swift in Sources */,
 				AF0434E925BAD91A000F9073 /* AppDelegate.swift in Sources */,
+				AF4C045725BAE89800274C82 /* ImageListViewController.swift in Sources */,
 				AF0434EB25BAD91A000F9073 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,6 +12,7 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
     // MARK: Controller's life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Tab bar opened")
+        
     }
+    
 }
