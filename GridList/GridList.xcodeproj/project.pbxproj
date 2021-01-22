@@ -20,6 +20,7 @@
 		AF4C046225BAEE6700274C82 /* GalleryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4C046125BAEE6700274C82 /* GalleryItem.swift */; };
 		AF4C046B25BAF3BB00274C82 /* ImageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4C046A25BAF3BB00274C82 /* ImageListViewModel.swift */; };
 		AF4C046E25BAF4FE00274C82 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4C046D25BAF4FE00274C82 /* DataStore.swift */; };
+		AF4C047125BB43DA00274C82 /* AutoReziedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4C047025BB43DA00274C82 /* AutoReziedLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		AF4C046125BAEE6700274C82 /* GalleryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryItem.swift; sourceTree = "<group>"; };
 		AF4C046A25BAF3BB00274C82 /* ImageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListViewModel.swift; sourceTree = "<group>"; };
 		AF4C046D25BAF4FE00274C82 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		AF4C047025BB43DA00274C82 /* AutoReziedLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoReziedLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			children = (
 				AF4C045925BAE9B600274C82 /* XIBViews */,
 				AF4C045A25BAE9E400274C82 /* ImageListCell.swift */,
+				AF4C047025BB43DA00274C82 /* AutoReziedLayout.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF4AF2F825BAE0FF00944A79 /* TabViewController.swift in Sources */,
+				AF4C047125BB43DA00274C82 /* AutoReziedLayout.swift in Sources */,
 				AF4C046E25BAF4FE00274C82 /* DataStore.swift in Sources */,
 				AF4C046B25BAF3BB00274C82 /* ImageListViewModel.swift in Sources */,
 				AF4C045B25BAE9E400274C82 /* ImageListCell.swift in Sources */,
