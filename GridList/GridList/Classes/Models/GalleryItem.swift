@@ -12,7 +12,7 @@ import Foundation
 struct GalleryItem: Codable {
     
     // Mark: Properties
-    let image: String
+    let image: URL
     let title: String
     let desctiption: String
 }

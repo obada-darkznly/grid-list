@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 
 class ImageListCell: UICollectionViewCell {
@@ -36,7 +37,10 @@ class ImageListCell: UICollectionViewCell {
         descriptionLabel.font = UIFont.systemFont(ofSize: 12)
     }
     
-    func populateWith() {
-        
+    /// Populates the cell with the gallery item object
+    func populateWith(_ galleryItem: GalleryItem) {
+        imageView.sd_setImage(with: galleryItem.image)
+        titleLabel.text = galleryItem.title
+        descriptionLabel.text = galleryItem.desctiption
     }
 }
