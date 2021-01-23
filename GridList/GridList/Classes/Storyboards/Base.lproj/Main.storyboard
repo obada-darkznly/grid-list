@@ -48,8 +48,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ZK8-Tx-1w8" firstAttribute="top" secondItem="4e4-Or-Qac" secondAttribute="top" id="0YD-wd-xjv"/>
+                            <constraint firstItem="4e4-Or-Qac" firstAttribute="trailing" secondItem="ZK8-Tx-1w8" secondAttribute="trailing" id="2bM-YO-3ZP"/>
                             <constraint firstItem="ZK8-Tx-1w8" firstAttribute="leading" secondItem="4e4-Or-Qac" secondAttribute="leading" id="SgR-pg-p8S"/>
-                            <constraint firstItem="ZK8-Tx-1w8" firstAttribute="trailing" secondItem="4e4-Or-Qac" secondAttribute="trailing" id="lRQ-vk-iC5"/>
                             <constraint firstItem="ZK8-Tx-1w8" firstAttribute="bottom" secondItem="4e4-Or-Qac" secondAttribute="bottom" id="sia-HB-vsT"/>
                         </constraints>
                     </view>

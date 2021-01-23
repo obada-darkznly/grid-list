@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Makes the collection cell resize it self according to the image size
 public class AutoResizedLayout: BaseLayout {
     public var columnsCount = 2
 

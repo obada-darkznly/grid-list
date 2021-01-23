@@ -29,7 +29,7 @@ class ImageListCell: UICollectionViewCell {
         
         // container view
         containerView.layer.cornerRadius = 8
-        containerView.backgroundColor = .gray
+        containerView.backgroundColor = .lightGray
         containerView.clipsToBounds = true
         // titleLabel
         titleLabel.font = UIFont.boldSystemFont(ofSize: 14)
