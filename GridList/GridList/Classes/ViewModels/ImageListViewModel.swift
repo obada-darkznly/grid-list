@@ -59,7 +59,7 @@ class ImageListViewModel {
         }
         imagesHeightArray = []
         var itemsArray: [GalleryItem] = []
-        for _ in 0...9 {
+        for _ in 0...14 {
             if let item = createGalleryItem() {
                 itemsArray.append(item)
             }
@@ -95,5 +95,27 @@ class ImageListViewModel {
         DataStore.shared.galleryItems = galleryItems
         DataStore.shared.galleryItemsHeight = imagesHeightArray
         DataStore.shared.deletedGalleryList = tempDeletedArray
+    }
+    
+    /// Checks if 10 minutes have passed to delete the extra images
+    func checkForExcessItems() {
+        // If the timer is not initialized give it a value of now
+        guard let passedTime = DataStore.shared.lastDeletionTimer else {
+            DataStore.shared.lastDeletionTimer = Date()
+            return
+        }
+        let exessDate = passedTime.addingTimeInterval(60000)
+        if Date() >= exessDate {
+            for (index, element) in galleryItems.enumerated() {
+                if index >= 10 {
+                    galleryItems.removeLast()
+                    imagesHeightArray.removeLast()
+                    tempDeletedArray.append(element)
+                }
+            }
+            // The new timer is set from now and the changes have been saved
+            DataStore.shared.lastDeletionTimer = Date()
+            saveChanges()
+        }
     }
 }
