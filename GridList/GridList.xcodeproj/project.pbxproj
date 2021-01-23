@@ -28,6 +28,8 @@
 		AFB7378725BC1D5800CB6101 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFB7378625BC1D5800CB6101 /* EmptyView.xib */; };
 		AFB7378A25BC1DE400CB6101 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB7378925BC1DE400CB6101 /* EmptyView.swift */; };
 		AFB7379225BC1F5800CB6101 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB7379125BC1F5800CB6101 /* UIButton.swift */; };
+		AFF9F22F25BCA0350045CBCB /* CustomActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF9F22E25BCA0350045CBCB /* CustomActionSheet.swift */; };
+		AFF9F23625BCA6740045CBCB /* CustomActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF9F23525BCA6740045CBCB /* CustomActionSheet.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		AFB7378625BC1D5800CB6101 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		AFB7378925BC1DE400CB6101 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		AFB7379125BC1F5800CB6101 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		AFF9F22E25BCA0350045CBCB /* CustomActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActionSheet.swift; sourceTree = "<group>"; };
+		AFF9F23525BCA6740045CBCB /* CustomActionSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomActionSheet.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 				AF4C045E25BAEC5C00274C82 /* ImageListCell.xib */,
 				AFB7377925BB82E400CB6101 /* GalleryHeader.xib */,
 				AFB7378625BC1D5800CB6101 /* EmptyView.xib */,
+				AFF9F23525BCA6740045CBCB /* CustomActionSheet.xib */,
 			);
 			path = XIBViews;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				AFB7377625BB7D6700CB6101 /* GalleryHeader.swift */,
 				AFB7378925BC1DE400CB6101 /* EmptyView.swift */,
 				AF4E328E25BC21BA00005BBC /* AbstractNibView.swift */,
+				AFF9F22E25BCA0350045CBCB /* CustomActionSheet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -285,6 +291,7 @@
 				AF4C045F25BAEC5C00274C82 /* ImageListCell.xib in Resources */,
 				AF0434F225BAD91B000F9073 /* Assets.xcassets in Resources */,
 				AFB7378725BC1D5800CB6101 /* EmptyView.xib in Resources */,
+				AFF9F23625BCA6740045CBCB /* CustomActionSheet.xib in Resources */,
 				AF0434F025BAD91A000F9073 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,6 +357,7 @@
 				AFB7377725BB7D6700CB6101 /* GalleryHeader.swift in Sources */,
 				AF4C045725BAE89800274C82 /* ImageListViewController.swift in Sources */,
 				AFB7379225BC1F5800CB6101 /* UIButton.swift in Sources */,
+				AFF9F22F25BCA0350045CBCB /* CustomActionSheet.swift in Sources */,
 				AF0434EB25BAD91A000F9073 /* SceneDelegate.swift in Sources */,
 				AF4C046225BAEE6700274C82 /* GalleryItem.swift in Sources */,
 			);

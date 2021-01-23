@@ -72,9 +72,6 @@ class ImageListViewController: UIViewController {
         emptyView.delegate = self
         // add the gesture recognizer to the collection view
         addLongGestureToCollectionView()
-        // Auto resize layout delegate
-        autoResizedLayout.delegate = self
-        autoResizedLayout.cellsPadding = ItemsPadding(horizontal: 8, vertical: 8)
         
         // Collection view setup
         collectionView.delegate = self
@@ -133,13 +130,13 @@ class ImageListViewController: UIViewController {
         }, completion: nil)
     }
     
-}
-
-// MARK:- Layout delegate
-extension ImageListViewController: LayoutDelegate {
-    func cellSize(indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: viewModel.imagesHeightArray[indexPath.item] + 64)
+    func showActionSheet() {
+        guard let actionSheetVC = Bundle.main.loadNibNamed("CustomActionSheet", owner: self, options: nil)?[0] as? CustomActionSheet else { return }
+        actionSheetVC.delegate = self
+        actionSheetVC.customizeWith("Delete item?", "Cancel", "Confirm")
+        present(actionSheetVC, animated: true, completion: nil)
     }
+    
 }
 
 // MARK:- Collection view delegate and data source
@@ -204,6 +201,10 @@ extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDat
         
         viewModel.saveChanges()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        showActionSheet()
+    }
 }
 
 // MARK:- UIImagePicker delegate and navigation delegate
@@ -226,4 +227,16 @@ extension ImageListViewController: EmptyViewDelegate {
     func actionButtonPressed() {
         loadingDelegate?.isLoading(loading: true)
     }
+}
+
+// MARK:- Action sheet delegate
+extension ImageListViewController: ActionSheetDelegate {
+    func firstButtonPressed() {
+        
+    }
+    
+    func secondButtonPressed() {
+        // TODO: Add the item to trash list
+    }
+    
 }
