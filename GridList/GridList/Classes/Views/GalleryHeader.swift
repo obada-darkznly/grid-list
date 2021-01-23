@@ -42,6 +42,8 @@ class GalleryHeader: UICollectionReusableView {
         searchTextField.textColor = .white
         searchTextField.placeholder = "Search"
     }
+    
+    
 }
 
 // MARK:- Textfield delegate

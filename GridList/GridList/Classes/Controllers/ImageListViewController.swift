@@ -82,7 +82,15 @@ class ImageListViewController: UIViewController {
         collectionView.reloadData()
     }
     
-    
+    // MARK: Actions
+    // MARK: Actions
+    @objc func cameraButtonPressed() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.allowsEditing = true
+        vc.delegate = self
+        present(vc, animated: true)
+    }
     
 }
 
@@ -112,6 +120,7 @@ extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDat
             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                                    withReuseIdentifier: viewModel.headerId,
                                                                                    for: indexPath) as? GalleryHeader else { return UICollectionReusableView() }
+            headerView.cameraButton.addTarget(self, action: #selector(cameraButtonPressed), for: .touchUpInside)
             return headerView
         case UICollectionView.elementKindSectionFooter:
             break
@@ -127,5 +136,18 @@ extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDat
     
     func headerWidth(indexPath: IndexPath) -> CGFloat {
         return 400
+    }
+}
+
+// MARK:- UIImagePicker delegate and navigation delegate
+extension ImageListViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+
+        guard let image = info[.editedImage] as? UIImage else {
+            print("No image found")
+            return
+        }
+        
     }
 }
