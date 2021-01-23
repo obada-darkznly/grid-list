@@ -12,3 +12,9 @@ protocol EmptyViewDelegate {
     
     func actionButtonPressed()
 }
+
+protocol ActionSheetDelegate {
+    
+    func firstButtonPressed()
+    func secondButtonPressed()
+}

@@ -51,6 +51,17 @@
                                     <constraint firstAttribute="height" constant="256" id="aDM-q2-jW0"/>
                                 </constraints>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="39o-3p-2J2">
+                                <rect key="frame" x="124.5" y="766" width="165" height="32"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <segments>
+                                    <segment title="Fixed"/>
+                                    <segment title="Automatic"/>
+                                </segments>
+                                <connections>
+                                    <action selector="valueChanged:" destination="yv8-Xb-gUx" eventType="valueChanged" id="fr8-DA-738"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4e4-Or-Qac"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -58,8 +69,10 @@
                             <constraint firstItem="ZK8-Tx-1w8" firstAttribute="top" secondItem="4e4-Or-Qac" secondAttribute="top" id="0YD-wd-xjv"/>
                             <constraint firstItem="4e4-Or-Qac" firstAttribute="trailing" secondItem="ZK8-Tx-1w8" secondAttribute="trailing" id="2bM-YO-3ZP"/>
                             <constraint firstItem="Tpt-bB-6R5" firstAttribute="centerY" secondItem="jnS-Ge-cTD" secondAttribute="centerY" id="5Rm-Gz-0g8"/>
+                            <constraint firstItem="39o-3p-2J2" firstAttribute="centerX" secondItem="jnS-Ge-cTD" secondAttribute="centerX" id="B2a-Lb-0pX"/>
                             <constraint firstItem="Tpt-bB-6R5" firstAttribute="centerX" secondItem="jnS-Ge-cTD" secondAttribute="centerX" id="OmV-2h-lbz"/>
                             <constraint firstItem="ZK8-Tx-1w8" firstAttribute="leading" secondItem="4e4-Or-Qac" secondAttribute="leading" id="SgR-pg-p8S"/>
+                            <constraint firstItem="4e4-Or-Qac" firstAttribute="bottom" secondItem="39o-3p-2J2" secondAttribute="bottom" constant="16" id="akp-Ah-9N2"/>
                             <constraint firstItem="ZK8-Tx-1w8" firstAttribute="bottom" secondItem="4e4-Or-Qac" secondAttribute="bottom" id="sia-HB-vsT"/>
                         </constraints>
                     </view>

@@ -14,7 +14,7 @@ class ImageListViewModel {
     // MARK: Properties
     
     /// The array that contains gallery items
-    private(set) var galleryItems: [GalleryItem] = DataStore.shared.galleryItems ?? [] {
+    var galleryItems: [GalleryItem] = DataStore.shared.galleryItems ?? [] {
         didSet {
             galleryItemsUpdated.send(true)
         }
@@ -28,14 +28,14 @@ class ImageListViewModel {
     let headerId = "headerID"
     let footerId = "footerId"
     
-    private(set) var imagesHeightArray: [Int] = []
+    var imagesHeightArray: [Int] = DataStore.shared.galleryItemsHeight ?? []
     
     // MARK: Methods
 
     /// Generates a single gallery item
     private func createGalleryItem() -> GalleryItem? {
         // Create a random size for the image
-        let randomImageSize = Int.random(in: 200...300)
+        let randomImageSize = Int.random(in: 150...350)
         imagesHeightArray.append(randomImageSize)
         let imageUrlString = "https://picsum.photos/200/\(randomImageSize)"
         if let url = URL(string: imageUrlString) {
@@ -61,8 +61,8 @@ class ImageListViewModel {
             }
         }
         // Update the cached items and notify the view controller to refresh
-        DataStore.shared.galleryItems = itemsArray
         galleryItems = itemsArray
+        saveChanges()
         completion(true)
     }
     
@@ -74,7 +74,13 @@ class ImageListViewModel {
     /// Saves new item to the collection
     func save(_ galleryItem: GalleryItem) {
         DataStore.shared.galleryItems?.append(galleryItem)
+        DataStore.shared.galleryItemsHeight?.append(200)
         imagesHeightArray.append(200)
         galleryItems.append(galleryItem)
+    }
+    
+    func saveChanges() {
+        DataStore.shared.galleryItems = galleryItems
+        DataStore.shared.galleryItemsHeight = imagesHeightArray
     }
 }

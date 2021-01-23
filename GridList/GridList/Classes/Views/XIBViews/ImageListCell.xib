@@ -21,16 +21,22 @@
                         <rect key="frame" x="8" y="0.0" width="266" height="295"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lXh-va-Wet">
-                                <rect key="frame" x="0.0" y="0.0" width="266" height="232.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="266" height="218"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oK-Au-eKt">
-                                <rect key="frame" x="8" y="240.5" width="38" height="21"/>
+                                <rect key="frame" x="8" y="226" width="38" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="PUH-Zi-R9R"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypa-vB-MMZ">
-                                <rect key="frame" x="8" y="265.5" width="242" height="20.5"/>
+                                <rect key="frame" x="8" y="250" width="242" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="jdc-bQ-l2s"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

@@ -31,12 +31,22 @@ class ImageListViewController: UIViewController {
         _layout.minimumLineSpacing = 8
         _layout.scrollDirection = .vertical
         _layout.headerReferenceSize = CGSize(width: view.frame.width - 64, height: 80)
-        _layout.sectionInset = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
+        _layout.sectionInset = UIEdgeInsets(top: 16, left: 0, bottom: 64, right: 0)
+        return _layout
+    }
+    // The automatic sizing layout
+    private var autoSizedLayout: UICollectionViewFlowLayout {
+        let _layout = UICollectionViewFlowLayout()
+        _layout.minimumInteritemSpacing = 0
+        _layout.minimumLineSpacing = 8
+        _layout.scrollDirection = .vertical
+        _layout.headerReferenceSize = CGSize(width: view.frame.width - 64, height: 80)
+        _layout.sectionInset = UIEdgeInsets(top: 16, left: 0, bottom: 64, right: 0)
         return _layout
     }
     
-    /// The automatically resized layout
-    private var autoResizedLayout: BaseLayout = AutoResizedLayout()
+    private var isAutomaticLayout: Bool = false
+    
     
     // MARK: Controller's life cycle
     
@@ -60,6 +70,8 @@ class ImageListViewController: UIViewController {
         
         // empty view
         emptyView.delegate = self
+        // add the gesture recognizer to the collection view
+        addLongGestureToCollectionView()
         // Auto resize layout delegate
         autoResizedLayout.delegate = self
         autoResizedLayout.cellsPadding = ItemsPadding(horizontal: 8, vertical: 8)
@@ -79,6 +91,13 @@ class ImageListViewController: UIViewController {
         collectionView.reloadData()
     }
     
+    func addLongGestureToCollectionView() {
+        
+        // create the getsure
+        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongGesture(_:)))
+        collectionView.addGestureRecognizer(gesture)
+    }
+    
     // MARK: Actions
     @objc func cameraButtonPressed() {
         let vc = UIImagePickerController()
@@ -88,17 +107,43 @@ class ImageListViewController: UIViewController {
         present(vc, animated: true)
     }
     
+    @objc func handleLongGesture(_ gesture: UILongPressGestureRecognizer) {
+        switch gesture.state {
+        case .began:
+            guard let targetIndexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else { return }
+            collectionView.beginInteractiveMovementForItem(at: targetIndexPath)
+        case .changed:
+            collectionView.updateInteractiveMovementTargetPosition(gesture.location(in: collectionView))
+        case .ended:
+            collectionView.endInteractiveMovement()
+        default:
+            break
+        }
+    }
+    
+    @IBAction func valueChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            collectionView.setCollectionViewLayout(fixedLayout, animated: true)
+        } else {
+            collectionView.setCollectionViewLayout(autoSizedLayout, animated: false)
+        }
+        isAutomaticLayout.toggle()
+        collectionView.performBatchUpdates({
+            collectionView.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
 }
 
 // MARK:- Layout delegate
 extension ImageListViewController: LayoutDelegate {
     func cellSize(indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: viewModel.imagesHeightArray[indexPath.item])
+        return CGSize(width: 200, height: viewModel.imagesHeightArray[indexPath.item] + 64)
     }
 }
 
 // MARK:- Collection view delegate and data source
-extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.galleryItems.count
     }
@@ -125,6 +170,39 @@ extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDat
             return UICollectionReusableView()
         }
         return UICollectionReusableView()
+    }
+    
+    func headerHeight(indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    func headerWidth(indexPath: IndexPath) -> CGFloat {
+        return view.frame.width - 16
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if isAutomaticLayout {
+            return  CGSize(width: view.frame.width / 2 , height: CGFloat(viewModel.imagesHeightArray[indexPath.item]))
+        } else {
+            return CGSize(width: view.frame.width / 2 , height: 250)
+        }
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        // remove the
+        let galleryItem = viewModel.galleryItems.remove(at: sourceIndexPath.row)
+        let galleryItemHeight = viewModel.imagesHeightArray.remove(at: sourceIndexPath.row)
+        
+        viewModel.galleryItems.insert(galleryItem, at: destinationIndexPath.row)
+        viewModel.imagesHeightArray.insert(galleryItemHeight, at: destinationIndexPath.row)
+        
+        viewModel.saveChanges()
     }
 }
 
