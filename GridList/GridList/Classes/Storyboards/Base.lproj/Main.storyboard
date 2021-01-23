@@ -11,18 +11,33 @@
         <!--Trash-->
         <scene sceneID="SQI-fq-PB6">
             <objects>
-                <viewController id="XUh-7p-PvR" sceneMemberID="viewController">
+                <viewController id="XUh-7p-PvR" customClass="TrashViewController" customModule="GridList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KLk-gD-uAR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LW7-nd-FPX">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="tln-LH-5Yt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LW7-nd-FPX" firstAttribute="trailing" secondItem="tln-LH-5Yt" secondAttribute="trailing" id="PUK-fb-X3O"/>
+                            <constraint firstItem="LW7-nd-FPX" firstAttribute="leading" secondItem="tln-LH-5Yt" secondAttribute="leading" id="SvZ-Mz-XNc"/>
+                            <constraint firstItem="LW7-nd-FPX" firstAttribute="bottom" secondItem="tln-LH-5Yt" secondAttribute="bottom" id="c2g-94-DKl"/>
+                            <constraint firstItem="LW7-nd-FPX" firstAttribute="top" secondItem="tln-LH-5Yt" secondAttribute="top" id="oBG-j8-3Bg"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Trash" image="trash" catalog="system" id="5Pr-pl-DyJ"/>
+                    <connections>
+                        <outlet property="tableView" destination="LW7-nd-FPX" id="cHx-Gg-Cyr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxw-iC-hO0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="332" y="409"/>
+            <point key="canvasLocation" x="331.8840579710145" y="408.48214285714283"/>
         </scene>
         <!--Gallery-->
         <scene sceneID="SNp-2r-07R">

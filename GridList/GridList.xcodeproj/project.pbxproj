@@ -31,6 +31,10 @@
 		AFF9F22F25BCA0350045CBCB /* CustomActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF9F22E25BCA0350045CBCB /* CustomActionSheet.swift */; };
 		AFF9F23625BCA6740045CBCB /* CustomActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF9F23525BCA6740045CBCB /* CustomActionSheet.xib */; };
 		AFF9F23D25BCBFB60045CBCB /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF9F23C25BCBFB60045CBCB /* UIApplication.swift */; };
+		AFF9F24425BCC44C0045CBCB /* TrashCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF9F24325BCC44C0045CBCB /* TrashCell.swift */; };
+		AFF9F24725BCC5430045CBCB /* TrashCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF9F24625BCC5430045CBCB /* TrashCell.xib */; };
+		AFF9F24A25BCC8410045CBCB /* TrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF9F24925BCC8410045CBCB /* TrashViewController.swift */; };
+		AFF9F24D25BCC9320045CBCB /* TrashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF9F24C25BCC9320045CBCB /* TrashViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +66,10 @@
 		AFF9F22E25BCA0350045CBCB /* CustomActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActionSheet.swift; sourceTree = "<group>"; };
 		AFF9F23525BCA6740045CBCB /* CustomActionSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomActionSheet.xib; sourceTree = "<group>"; };
 		AFF9F23C25BCBFB60045CBCB /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		AFF9F24325BCC44C0045CBCB /* TrashCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashCell.swift; sourceTree = "<group>"; };
+		AFF9F24625BCC5430045CBCB /* TrashCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrashCell.xib; sourceTree = "<group>"; };
+		AFF9F24925BCC8410045CBCB /* TrashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashViewController.swift; sourceTree = "<group>"; };
+		AFF9F24C25BCC9320045CBCB /* TrashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +129,7 @@
 				AFB7377925BB82E400CB6101 /* GalleryHeader.xib */,
 				AFB7378625BC1D5800CB6101 /* EmptyView.xib */,
 				AFF9F23525BCA6740045CBCB /* CustomActionSheet.xib */,
+				AFF9F24625BCC5430045CBCB /* TrashCell.xib */,
 			);
 			path = XIBViews;
 			sourceTree = "<group>";
@@ -149,6 +158,7 @@
 				AFB7378925BC1DE400CB6101 /* EmptyView.swift */,
 				AF4E328E25BC21BA00005BBC /* AbstractNibView.swift */,
 				AFF9F22E25BCA0350045CBCB /* CustomActionSheet.swift */,
+				AFF9F24325BCC44C0045CBCB /* TrashCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -158,6 +168,7 @@
 			children = (
 				AF4AF2F725BAE0FE00944A79 /* TabViewController.swift */,
 				AF4C045625BAE89800274C82 /* ImageListViewController.swift */,
+				AFF9F24925BCC8410045CBCB /* TrashViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -166,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				AF4C046A25BAF3BB00274C82 /* ImageListViewModel.swift */,
+				AFF9F24C25BCC9320045CBCB /* TrashViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -289,6 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFF9F24725BCC5430045CBCB /* TrashCell.xib in Resources */,
 				AFB7377A25BB82E400CB6101 /* GalleryHeader.xib in Resources */,
 				AF0434F525BAD91B000F9073 /* LaunchScreen.storyboard in Resources */,
 				AF4C045F25BAEC5C00274C82 /* ImageListCell.xib in Resources */,
@@ -351,18 +364,21 @@
 				AFF9F23D25BCBFB60045CBCB /* UIApplication.swift in Sources */,
 				AF4AF2F825BAE0FF00944A79 /* TabViewController.swift in Sources */,
 				AFB7378A25BC1DE400CB6101 /* EmptyView.swift in Sources */,
+				AFF9F24A25BCC8410045CBCB /* TrashViewController.swift in Sources */,
 				AF4C046E25BAF4FE00274C82 /* DataStore.swift in Sources */,
 				AF4C046B25BAF3BB00274C82 /* ImageListViewModel.swift in Sources */,
 				AF4E328F25BC21BA00005BBC /* AbstractNibView.swift in Sources */,
 				AF4E329225BC23E300005BBC /* EmptyViewDelegate.swift in Sources */,
 				AFB7377E25BC0D3200CB6101 /* LoadableDelegate.swift in Sources */,
 				AF4C045B25BAE9E400274C82 /* ImageListCell.swift in Sources */,
+				AFF9F24D25BCC9320045CBCB /* TrashViewModel.swift in Sources */,
 				AF0434E925BAD91A000F9073 /* AppDelegate.swift in Sources */,
 				AFB7377725BB7D6700CB6101 /* GalleryHeader.swift in Sources */,
 				AF4C045725BAE89800274C82 /* ImageListViewController.swift in Sources */,
 				AFB7379225BC1F5800CB6101 /* UIButton.swift in Sources */,
 				AFF9F22F25BCA0350045CBCB /* CustomActionSheet.swift in Sources */,
 				AF0434EB25BAD91A000F9073 /* SceneDelegate.swift in Sources */,
+				AFF9F24425BCC44C0045CBCB /* TrashCell.swift in Sources */,
 				AF4C046225BAEE6700274C82 /* GalleryItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

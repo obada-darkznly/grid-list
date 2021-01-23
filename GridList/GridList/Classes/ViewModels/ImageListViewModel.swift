@@ -32,6 +32,8 @@ class ImageListViewModel {
     
     var selectedItemIndex: Int? = nil
     
+    private var tempDeletedArray: [GalleryItem] = []
+    
     // MARK: Methods
 
     /// Generates a single gallery item
@@ -72,7 +74,7 @@ class ImageListViewModel {
     func removeSelectedItem() {
         guard selectedItemIndex != nil else { return }
         // add the deleted item to trash list
-        DataStore.shared.deletedGalleryList?.append(galleryItems[selectedItemIndex!])
+        tempDeletedArray.append(galleryItems[selectedItemIndex!])
         // remove the deleted items from gallery list
         galleryItems.remove(at: selectedItemIndex!)
         imagesHeightArray.remove(at: selectedItemIndex!)
@@ -92,5 +94,6 @@ class ImageListViewModel {
     func saveChanges() {
         DataStore.shared.galleryItems = galleryItems
         DataStore.shared.galleryItemsHeight = imagesHeightArray
+        DataStore.shared.deletedGalleryList = tempDeletedArray
     }
 }

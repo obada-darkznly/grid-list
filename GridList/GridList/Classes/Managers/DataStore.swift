@@ -48,7 +48,7 @@ class DataStore: NSObject{
                         _galleryItems = try decoder.decode([GalleryItem].self, from: jsonData)
                     }
                 } catch {
-                    print("Error in decoding data")
+                    print("Error in decoding data: \(error)")
                 }
             }
             return _galleryItems
@@ -75,7 +75,7 @@ class DataStore: NSObject{
                         _deletedGalleryList = try decoder.decode([GalleryItem].self, from: jsonData)
                     }
                 } catch {
-                    print("Error in decoding data")
+                    print("Error in decoding data: \(error)")
                 }
             }
             return _deletedGalleryList
