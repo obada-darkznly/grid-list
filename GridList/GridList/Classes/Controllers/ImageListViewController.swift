@@ -129,14 +129,6 @@ extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDat
         }
         return UICollectionReusableView()
     }
-    
-    func headerHeight(indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
-    
-    func headerWidth(indexPath: IndexPath) -> CGFloat {
-        return 400
-    }
 }
 
 // MARK:- UIImagePicker delegate and navigation delegate
@@ -144,10 +136,12 @@ extension ImageListViewController: UINavigationControllerDelegate, UIImagePicker
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
 
-        guard let image = info[.editedImage] as? UIImage else {
-            print("No image found")
-            return
-        }
         
+        if let imageUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL {
+            let galleryItem = GalleryItem(with: imageUrl,
+                                          "Title:",
+                                          and: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document.")
+            viewModel.save(galleryItem)
+        }
     }
 }

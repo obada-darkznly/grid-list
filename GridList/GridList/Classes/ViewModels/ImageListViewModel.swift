@@ -68,4 +68,11 @@ class ImageListViewModel {
         
     }
     
+    /// Saves new item to the collection
+    func save(_ galleryItem: GalleryItem) {
+        DataStore.shared.galleryItems?.append(galleryItem)
+        galleryItems.append(galleryItem)
+        galleryItemsUpdated.send(true)
+    }
+    
 }
