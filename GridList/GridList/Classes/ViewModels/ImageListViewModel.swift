@@ -14,7 +14,11 @@ class ImageListViewModel {
     // MARK: Properties
     
     /// The array that contains gallery items
-    private(set) var galleryItems: [GalleryItem] = DataStore.shared.galleryItems ?? []
+    private(set) var galleryItems: [GalleryItem] = DataStore.shared.galleryItems ?? [] {
+        didSet {
+            galleryItemsUpdated.send(true)
+        }
+    }
     
     /// Notifies the view controller that the data has changed, in order to refresh the collection view
     var galleryItemsUpdated = CurrentValueSubject<Bool, Never>(false)
@@ -60,7 +64,6 @@ class ImageListViewModel {
         DataStore.shared.galleryItems = itemsArray
         galleryItems = itemsArray
         completion(true)
-        galleryItemsUpdated.send(true)
     }
     
     /// Deletes the selected galleryItem
@@ -71,8 +74,7 @@ class ImageListViewModel {
     /// Saves new item to the collection
     func save(_ galleryItem: GalleryItem) {
         DataStore.shared.galleryItems?.append(galleryItem)
+        imagesHeightArray.append(200)
         galleryItems.append(galleryItem)
-        galleryItemsUpdated.send(true)
     }
-    
 }

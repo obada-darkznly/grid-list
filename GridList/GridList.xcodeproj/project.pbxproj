@@ -22,8 +22,14 @@
 		AF4C046E25BAF4FE00274C82 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4C046D25BAF4FE00274C82 /* DataStore.swift */; };
 		AF4C047125BB43DA00274C82 /* AutoReziedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4C047025BB43DA00274C82 /* AutoReziedLayout.swift */; };
 		AF4C047425BB4CC300274C82 /* BaseLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4C047325BB4CC300274C82 /* BaseLayout.swift */; };
+		AF4E328F25BC21BA00005BBC /* AbstractNibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4E328E25BC21BA00005BBC /* AbstractNibView.swift */; };
+		AF4E329225BC23E300005BBC /* EmptyViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4E329125BC23E300005BBC /* EmptyViewDelegate.swift */; };
 		AFB7377725BB7D6700CB6101 /* GalleryHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB7377625BB7D6700CB6101 /* GalleryHeader.swift */; };
 		AFB7377A25BB82E400CB6101 /* GalleryHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFB7377925BB82E400CB6101 /* GalleryHeader.xib */; };
+		AFB7377E25BC0D3200CB6101 /* LoadableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB7377D25BC0D3200CB6101 /* LoadableDelegate.swift */; };
+		AFB7378725BC1D5800CB6101 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFB7378625BC1D5800CB6101 /* EmptyView.xib */; };
+		AFB7378A25BC1DE400CB6101 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB7378925BC1DE400CB6101 /* EmptyView.swift */; };
+		AFB7379225BC1F5800CB6101 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB7379125BC1F5800CB6101 /* UIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +52,14 @@
 		AF4C046D25BAF4FE00274C82 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		AF4C047025BB43DA00274C82 /* AutoReziedLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoReziedLayout.swift; sourceTree = "<group>"; };
 		AF4C047325BB4CC300274C82 /* BaseLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLayout.swift; sourceTree = "<group>"; };
+		AF4E328E25BC21BA00005BBC /* AbstractNibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractNibView.swift; sourceTree = "<group>"; };
+		AF4E329125BC23E300005BBC /* EmptyViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewDelegate.swift; sourceTree = "<group>"; };
 		AFB7377625BB7D6700CB6101 /* GalleryHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryHeader.swift; sourceTree = "<group>"; };
 		AFB7377925BB82E400CB6101 /* GalleryHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryHeader.xib; sourceTree = "<group>"; };
+		AFB7377D25BC0D3200CB6101 /* LoadableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableDelegate.swift; sourceTree = "<group>"; };
+		AFB7378625BC1D5800CB6101 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
+		AFB7378925BC1DE400CB6101 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		AFB7379125BC1F5800CB6101 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +117,7 @@
 			children = (
 				AF4C045E25BAEC5C00274C82 /* ImageListCell.xib */,
 				AFB7377925BB82E400CB6101 /* GalleryHeader.xib */,
+				AFB7378625BC1D5800CB6101 /* EmptyView.xib */,
 			);
 			path = XIBViews;
 			sourceTree = "<group>";
@@ -112,6 +125,8 @@
 		AF4FE8FF25BADE46001DC3E7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				AFB7379025BC1F4A00CB6101 /* Extensions */,
+				AFB7377C25BC0D1600CB6101 /* Protocols */,
 				AF4FE90725BADF86001DC3E7 /* Storyboards */,
 				AF4FE90425BADF15001DC3E7 /* Managers */,
 				AF4FE90325BADF03001DC3E7 /* Models */,
@@ -130,6 +145,8 @@
 				AF4C047025BB43DA00274C82 /* AutoReziedLayout.swift */,
 				AF4C047325BB4CC300274C82 /* BaseLayout.swift */,
 				AFB7377625BB7D6700CB6101 /* GalleryHeader.swift */,
+				AFB7378925BC1DE400CB6101 /* EmptyView.swift */,
+				AF4E328E25BC21BA00005BBC /* AbstractNibView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,6 +200,23 @@
 				AF0434EE25BAD91A000F9073 /* Main.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		AFB7377C25BC0D1600CB6101 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				AFB7377D25BC0D3200CB6101 /* LoadableDelegate.swift */,
+				AF4E329125BC23E300005BBC /* EmptyViewDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		AFB7379025BC1F4A00CB6101 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AFB7379125BC1F5800CB6101 /* UIButton.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		CCA6C70E079B93C53FF68730 /* Frameworks */ = {
@@ -256,6 +290,7 @@
 				AF0434F525BAD91B000F9073 /* LaunchScreen.storyboard in Resources */,
 				AF4C045F25BAEC5C00274C82 /* ImageListCell.xib in Resources */,
 				AF0434F225BAD91B000F9073 /* Assets.xcassets in Resources */,
+				AFB7378725BC1D5800CB6101 /* EmptyView.xib in Resources */,
 				AF0434F025BAD91A000F9073 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,14 +345,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF4AF2F825BAE0FF00944A79 /* TabViewController.swift in Sources */,
+				AFB7378A25BC1DE400CB6101 /* EmptyView.swift in Sources */,
 				AF4C047125BB43DA00274C82 /* AutoReziedLayout.swift in Sources */,
 				AF4C047425BB4CC300274C82 /* BaseLayout.swift in Sources */,
 				AF4C046E25BAF4FE00274C82 /* DataStore.swift in Sources */,
 				AF4C046B25BAF3BB00274C82 /* ImageListViewModel.swift in Sources */,
+				AF4E328F25BC21BA00005BBC /* AbstractNibView.swift in Sources */,
+				AF4E329225BC23E300005BBC /* EmptyViewDelegate.swift in Sources */,
+				AFB7377E25BC0D3200CB6101 /* LoadableDelegate.swift in Sources */,
 				AF4C045B25BAE9E400274C82 /* ImageListCell.swift in Sources */,
 				AF0434E925BAD91A000F9073 /* AppDelegate.swift in Sources */,
 				AFB7377725BB7D6700CB6101 /* GalleryHeader.swift in Sources */,
 				AF4C045725BAE89800274C82 /* ImageListViewController.swift in Sources */,
+				AFB7379225BC1F5800CB6101 /* UIButton.swift in Sources */,
 				AF0434EB25BAD91A000F9073 /* SceneDelegate.swift in Sources */,
 				AF4C046225BAEE6700274C82 /* GalleryItem.swift in Sources */,
 			);

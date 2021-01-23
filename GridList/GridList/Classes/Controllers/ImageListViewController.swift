@@ -13,9 +13,12 @@ class ImageListViewController: UIViewController {
     
     // MARK: Outlets
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var emptyView: EmptyView!
     
     // MARK: Properties
     let viewModel = ImageListViewModel()
+    // Loading delegate to show the loader in the header
+    var loadingDelegate: LoadableDelegate? = nil
     
     /// Listens to any changes to the data array to refresh the table view
     var shouldRefreshCollectionView: AnyCancellable?
@@ -41,7 +44,6 @@ class ImageListViewController: UIViewController {
         super.viewDidLoad()
         
         // Create the data array
-        
             viewModel.createGalleryItemsArray { (_) in
                 self.customizeViews()
             }
@@ -53,19 +55,14 @@ class ImageListViewController: UIViewController {
         })
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    
-    }
-    
     // MARK: Customization
     func customizeViews() {
         
+        // empty view
+        emptyView.delegate = self
         // Auto resize layout delegate
         autoResizedLayout.delegate = self
         autoResizedLayout.cellsPadding = ItemsPadding(horizontal: 8, vertical: 8)
-        
         
         // Collection view setup
         collectionView.delegate = self
@@ -82,7 +79,6 @@ class ImageListViewController: UIViewController {
         collectionView.reloadData()
     }
     
-    // MARK: Actions
     // MARK: Actions
     @objc func cameraButtonPressed() {
         let vc = UIImagePickerController()
@@ -121,6 +117,7 @@ extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDat
                                                                                    withReuseIdentifier: viewModel.headerId,
                                                                                    for: indexPath) as? GalleryHeader else { return UICollectionReusableView() }
             headerView.cameraButton.addTarget(self, action: #selector(cameraButtonPressed), for: .touchUpInside)
+            headerView.delegate = loadingDelegate
             return headerView
         case UICollectionView.elementKindSectionFooter:
             break
@@ -136,12 +133,19 @@ extension ImageListViewController: UINavigationControllerDelegate, UIImagePicker
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
 
-        
+        // Create a gallery item object and append it to the collection
         if let imageUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL {
             let galleryItem = GalleryItem(with: imageUrl,
                                           "Title:",
                                           and: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document.")
             viewModel.save(galleryItem)
         }
+    }
+}
+
+// MARK:- empty view delegate
+extension ImageListViewController: EmptyViewDelegate {
+    func actionButtonPressed() {
+        loadingDelegate?.isLoading(loading: true)
     }
 }

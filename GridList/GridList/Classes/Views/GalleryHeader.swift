@@ -18,6 +18,11 @@ class GalleryHeader: UICollectionReusableView {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    
+    //MARK: loadable delegate
+    var delegate: LoadableDelegate? = nil
+    
+    
     // MARK: View's life cycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,6 +46,7 @@ class GalleryHeader: UICollectionReusableView {
         searchTextField.font = UIFont.systemFont(ofSize: 18)
         searchTextField.textColor = .white
         searchTextField.placeholder = "Search"
+        
     }
     
     
@@ -52,5 +58,23 @@ extension GalleryHeader: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return false
+    }
+}
+
+// MARK:- Loadable delegate
+extension GalleryHeader: LoadableDelegate {
+    func isLoading(loading: Bool) {
+        // if loading show indicator
+        if loading {
+            searchImage.isHidden = true
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
+            // hide the loader after 1 second
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.isHidden = true
+                self.searchImage.isHidden = false
+            }
+        }
     }
 }

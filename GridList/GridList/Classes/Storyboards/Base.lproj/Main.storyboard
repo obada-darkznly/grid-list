@@ -43,12 +43,22 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tpt-bB-6R5" customClass="EmptyView" customModule="GridList" customModuleProvider="target">
+                                <rect key="frame" x="79" y="320" width="256" height="256"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="256" id="XRW-yf-ABr"/>
+                                    <constraint firstAttribute="height" constant="256" id="aDM-q2-jW0"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4e4-Or-Qac"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ZK8-Tx-1w8" firstAttribute="top" secondItem="4e4-Or-Qac" secondAttribute="top" id="0YD-wd-xjv"/>
                             <constraint firstItem="4e4-Or-Qac" firstAttribute="trailing" secondItem="ZK8-Tx-1w8" secondAttribute="trailing" id="2bM-YO-3ZP"/>
+                            <constraint firstItem="Tpt-bB-6R5" firstAttribute="centerY" secondItem="jnS-Ge-cTD" secondAttribute="centerY" id="5Rm-Gz-0g8"/>
+                            <constraint firstItem="Tpt-bB-6R5" firstAttribute="centerX" secondItem="jnS-Ge-cTD" secondAttribute="centerX" id="OmV-2h-lbz"/>
                             <constraint firstItem="ZK8-Tx-1w8" firstAttribute="leading" secondItem="4e4-Or-Qac" secondAttribute="leading" id="SgR-pg-p8S"/>
                             <constraint firstItem="ZK8-Tx-1w8" firstAttribute="bottom" secondItem="4e4-Or-Qac" secondAttribute="bottom" id="sia-HB-vsT"/>
                         </constraints>
@@ -56,6 +66,7 @@
                     <tabBarItem key="tabBarItem" title="Gallery" image="photo.on.rectangle.angled" catalog="system" id="Cg6-Dd-EbX"/>
                     <connections>
                         <outlet property="collectionView" destination="ZK8-Tx-1w8" id="R6C-hq-SPP"/>
+                        <outlet property="emptyView" destination="Tpt-bB-6R5" id="U8O-vc-N0I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OSy-pZ-vNc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
