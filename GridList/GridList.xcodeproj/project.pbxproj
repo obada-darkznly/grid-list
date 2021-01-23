@@ -30,6 +30,7 @@
 		AFB7379225BC1F5800CB6101 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB7379125BC1F5800CB6101 /* UIButton.swift */; };
 		AFF9F22F25BCA0350045CBCB /* CustomActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF9F22E25BCA0350045CBCB /* CustomActionSheet.swift */; };
 		AFF9F23625BCA6740045CBCB /* CustomActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF9F23525BCA6740045CBCB /* CustomActionSheet.xib */; };
+		AFF9F23D25BCBFB60045CBCB /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF9F23C25BCBFB60045CBCB /* UIApplication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		AFB7379125BC1F5800CB6101 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		AFF9F22E25BCA0350045CBCB /* CustomActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActionSheet.swift; sourceTree = "<group>"; };
 		AFF9F23525BCA6740045CBCB /* CustomActionSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomActionSheet.xib; sourceTree = "<group>"; };
+		AFF9F23C25BCBFB60045CBCB /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				AFB7379125BC1F5800CB6101 /* UIButton.swift */,
+				AFF9F23C25BCBFB60045CBCB /* UIApplication.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFF9F23D25BCBFB60045CBCB /* UIApplication.swift in Sources */,
 				AF4AF2F825BAE0FF00944A79 /* TabViewController.swift in Sources */,
 				AFB7378A25BC1DE400CB6101 /* EmptyView.swift in Sources */,
 				AF4C046E25BAF4FE00274C82 /* DataStore.swift in Sources */,

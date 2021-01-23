@@ -21,39 +21,42 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQy-Eb-y3T">
                     <rect key="frame" x="0.0" y="44" width="453" height="303"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle.angled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5cG-jr-O5P">
-                            <rect key="frame" x="162.5" y="31" width="128" height="129"/>
-                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="128" id="lER-C3-M6Q"/>
-                                <constraint firstAttribute="height" constant="128" id="ocj-Vw-fxn"/>
-                            </constraints>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No feed available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7T-35-3fx">
-                            <rect key="frame" x="16" y="176" width="421" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTX-c5-qdC">
-                            <rect key="frame" x="179.5" y="213" width="94" height="30"/>
-                            <state key="normal" title="Add an image">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
-                            <connections>
-                                <action selector="actionButtonPressed:" destination="-1" eventType="touchUpInside" id="07s-GF-7UQ"/>
-                            </connections>
-                        </button>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="qM5-6u-jbl">
+                            <rect key="frame" x="158" y="46" width="137.5" height="211.5"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.on.rectangle.angled" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5cG-jr-O5P">
+                                    <rect key="frame" x="4.5" y="-1" width="128" height="129"/>
+                                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="128" id="lER-C3-M6Q"/>
+                                        <constraint firstAttribute="height" constant="128" id="ocj-Vw-fxn"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No feed available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7T-35-3fx">
+                                    <rect key="frame" x="0.0" y="144" width="137.5" height="21.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTX-c5-qdC">
+                                    <rect key="frame" x="4.5" y="181.5" width="128" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="128" id="b9t-sI-ssU"/>
+                                    </constraints>
+                                    <state key="normal" title="Add an image">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="actionButtonPressed:" destination="-1" eventType="touchUpInside" id="07s-GF-7UQ"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemGray2Color"/>
                     <constraints>
-                        <constraint firstItem="5cG-jr-O5P" firstAttribute="centerX" secondItem="XQy-Eb-y3T" secondAttribute="centerX" id="A8G-6y-Fu7"/>
-                        <constraint firstAttribute="trailing" secondItem="m7T-35-3fx" secondAttribute="trailing" constant="16" id="VaB-Iq-feT"/>
-                        <constraint firstItem="aTX-c5-qdC" firstAttribute="top" secondItem="m7T-35-3fx" secondAttribute="bottom" constant="16" id="bbh-8a-8dg"/>
-                        <constraint firstItem="m7T-35-3fx" firstAttribute="leading" secondItem="XQy-Eb-y3T" secondAttribute="leading" constant="16" id="f1A-x9-TOU"/>
-                        <constraint firstItem="m7T-35-3fx" firstAttribute="top" secondItem="5cG-jr-O5P" secondAttribute="bottom" constant="16" id="smX-S6-6Ow"/>
-                        <constraint firstItem="aTX-c5-qdC" firstAttribute="centerX" secondItem="XQy-Eb-y3T" secondAttribute="centerX" id="tUg-9Q-USX"/>
-                        <constraint firstItem="5cG-jr-O5P" firstAttribute="top" secondItem="XQy-Eb-y3T" secondAttribute="top" constant="32" id="zc6-Dc-aeM"/>
+                        <constraint firstItem="qM5-6u-jbl" firstAttribute="centerY" secondItem="XQy-Eb-y3T" secondAttribute="centerY" id="3HQ-OD-15o"/>
+                        <constraint firstItem="qM5-6u-jbl" firstAttribute="centerX" secondItem="XQy-Eb-y3T" secondAttribute="centerX" id="w2F-dR-0mf"/>
                     </constraints>
                 </view>
             </subviews>

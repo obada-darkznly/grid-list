@@ -30,6 +30,8 @@ class ImageListViewModel {
     
     var imagesHeightArray: [Int] = DataStore.shared.galleryItemsHeight ?? []
     
+    var selectedItemIndex: Int? = nil
+    
     // MARK: Methods
 
     /// Generates a single gallery item
@@ -48,7 +50,7 @@ class ImageListViewModel {
     
     /// Creates an array of gallery items and stores them  in cache
     func createGalleryItemsArray(completion: @escaping(_ finished: Bool) -> Void) {
-        guard DataStore.shared.galleryItems == nil else {
+        guard DataStore.shared.galleryItems?.isEmpty ?? true  else {
             galleryItemsUpdated.send(true)
             completion(true)
             return
@@ -68,7 +70,15 @@ class ImageListViewModel {
     
     /// Deletes the selected galleryItem
     func removeSelectedItem() {
-        
+        guard selectedItemIndex != nil else { return }
+        // add the deleted item to trash list
+        DataStore.shared.deletedGalleryList?.append(galleryItems[selectedItemIndex!])
+        // remove the deleted items from gallery list
+        galleryItems.remove(at: selectedItemIndex!)
+        imagesHeightArray.remove(at: selectedItemIndex!)
+        saveChanges()
+        // reset the selected item index
+        selectedItemIndex = nil
     }
     
     /// Saves new item to the collection

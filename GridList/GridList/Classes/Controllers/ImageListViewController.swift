@@ -14,6 +14,7 @@ class ImageListViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var emptyView: EmptyView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     // MARK: Properties
     let viewModel = ImageListViewModel()
@@ -60,7 +61,14 @@ class ImageListViewController: UIViewController {
         // Listen to changes to the data
         shouldRefreshCollectionView = viewModel.galleryItemsUpdated.sink(receiveValue: { (refresh) in
             if refresh {
-                self.collectionView.reloadData()
+                if self.viewModel.galleryItems.isEmpty {
+                    self.segmentedControl.isHidden = true
+                    self.collectionView.isHidden = true
+                } else {
+                    self.segmentedControl.isHidden = false
+                    self.collectionView.isHidden = false
+                    self.collectionView.reloadData()
+                }
             }
         })
     }
@@ -130,8 +138,9 @@ class ImageListViewController: UIViewController {
         }, completion: nil)
     }
     
-    func showActionSheet() {
+    func showActionSheet(forItemIndex index: Int) {
         guard let actionSheetVC = Bundle.main.loadNibNamed("CustomActionSheet", owner: self, options: nil)?[0] as? CustomActionSheet else { return }
+        viewModel.selectedItemIndex = index
         actionSheetVC.delegate = self
         actionSheetVC.customizeWith("Delete item?", "Cancel", "Confirm")
         present(actionSheetVC, animated: true, completion: nil)
@@ -161,20 +170,9 @@ extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDat
             headerView.cameraButton.addTarget(self, action: #selector(cameraButtonPressed), for: .touchUpInside)
             headerView.delegate = loadingDelegate
             return headerView
-        case UICollectionView.elementKindSectionFooter:
-            break
         default:
             return UICollectionReusableView()
         }
-        return UICollectionReusableView()
-    }
-    
-    func headerHeight(indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
-    
-    func headerWidth(indexPath: IndexPath) -> CGFloat {
-        return view.frame.width - 16
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -203,7 +201,7 @@ extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        showActionSheet()
+        showActionSheet(forItemIndex: indexPath.item)
     }
 }
 
@@ -226,6 +224,9 @@ extension ImageListViewController: UINavigationControllerDelegate, UIImagePicker
 extension ImageListViewController: EmptyViewDelegate {
     func actionButtonPressed() {
         loadingDelegate?.isLoading(loading: true)
+        viewModel.createGalleryItemsArray { (_) in
+            self.loadingDelegate?.isLoading(loading: false)
+        }
     }
 }
 
@@ -236,7 +237,7 @@ extension ImageListViewController: ActionSheetDelegate {
     }
     
     func secondButtonPressed() {
-        // TODO: Add the item to trash list
+        viewModel.removeSelectedItem()
     }
     
 }

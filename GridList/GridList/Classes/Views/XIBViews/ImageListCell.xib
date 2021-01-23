@@ -25,9 +25,6 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oK-Au-eKt">
                                 <rect key="frame" x="8" y="226" width="38" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="PUH-Zi-R9R"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -41,6 +38,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dk3-zc-qey">
+                                <rect key="frame" x="212" y="8" width="46" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="Dfy-ej-YAS"/>
+                                    <constraint firstAttribute="width" constant="46" id="uKJ-Iw-G6G"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="arrowshape.turn.up.left.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="sharePressed:" destination="iTc-tK-dTS" eventType="touchUpInside" id="5co-Sg-5oF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -48,8 +57,10 @@
                             <constraint firstItem="ypa-vB-MMZ" firstAttribute="leading" secondItem="ONF-6z-zJ0" secondAttribute="leading" constant="8" id="6vc-Vh-jKd"/>
                             <constraint firstItem="lXh-va-Wet" firstAttribute="leading" secondItem="ONF-6z-zJ0" secondAttribute="leading" id="Hi0-yN-Ln9"/>
                             <constraint firstAttribute="bottom" secondItem="ypa-vB-MMZ" secondAttribute="bottom" constant="9" id="Iiz-5Y-Tym"/>
+                            <constraint firstItem="Dk3-zc-qey" firstAttribute="top" secondItem="ONF-6z-zJ0" secondAttribute="top" constant="8" id="SID-5A-k3M"/>
                             <constraint firstItem="ypa-vB-MMZ" firstAttribute="top" secondItem="8oK-Au-eKt" secondAttribute="bottom" constant="4" id="bHl-H2-JGj"/>
                             <constraint firstItem="8oK-Au-eKt" firstAttribute="top" secondItem="lXh-va-Wet" secondAttribute="bottom" constant="8" id="bIJ-1H-hpp"/>
+                            <constraint firstAttribute="trailing" secondItem="Dk3-zc-qey" secondAttribute="trailing" constant="8" id="lcm-ye-4nT"/>
                             <constraint firstItem="8oK-Au-eKt" firstAttribute="leading" secondItem="ONF-6z-zJ0" secondAttribute="leading" constant="8" id="oMv-ca-0C5"/>
                             <constraint firstAttribute="trailing" secondItem="ypa-vB-MMZ" secondAttribute="trailing" constant="16" id="yai-LH-2iY"/>
                             <constraint firstItem="lXh-va-Wet" firstAttribute="top" secondItem="ONF-6z-zJ0" secondAttribute="top" id="ynz-Mq-ciQ"/>
@@ -74,6 +85,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -32,6 +32,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tpt-bB-6R5" customClass="EmptyView" customModule="GridList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZK8-Tx-1w8">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -43,14 +47,6 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tpt-bB-6R5" customClass="EmptyView" customModule="GridList" customModuleProvider="target">
-                                <rect key="frame" x="79" y="320" width="256" height="256"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="256" id="XRW-yf-ABr"/>
-                                    <constraint firstAttribute="height" constant="256" id="aDM-q2-jW0"/>
-                                </constraints>
-                            </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="39o-3p-2J2">
                                 <rect key="frame" x="124.5" y="766" width="165" height="32"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -68,18 +64,21 @@
                         <constraints>
                             <constraint firstItem="ZK8-Tx-1w8" firstAttribute="top" secondItem="4e4-Or-Qac" secondAttribute="top" id="0YD-wd-xjv"/>
                             <constraint firstItem="4e4-Or-Qac" firstAttribute="trailing" secondItem="ZK8-Tx-1w8" secondAttribute="trailing" id="2bM-YO-3ZP"/>
-                            <constraint firstItem="Tpt-bB-6R5" firstAttribute="centerY" secondItem="jnS-Ge-cTD" secondAttribute="centerY" id="5Rm-Gz-0g8"/>
+                            <constraint firstItem="Tpt-bB-6R5" firstAttribute="leading" secondItem="4e4-Or-Qac" secondAttribute="leading" id="78x-Qm-EO4"/>
                             <constraint firstItem="39o-3p-2J2" firstAttribute="centerX" secondItem="jnS-Ge-cTD" secondAttribute="centerX" id="B2a-Lb-0pX"/>
-                            <constraint firstItem="Tpt-bB-6R5" firstAttribute="centerX" secondItem="jnS-Ge-cTD" secondAttribute="centerX" id="OmV-2h-lbz"/>
                             <constraint firstItem="ZK8-Tx-1w8" firstAttribute="leading" secondItem="4e4-Or-Qac" secondAttribute="leading" id="SgR-pg-p8S"/>
                             <constraint firstItem="4e4-Or-Qac" firstAttribute="bottom" secondItem="39o-3p-2J2" secondAttribute="bottom" constant="16" id="akp-Ah-9N2"/>
+                            <constraint firstItem="39o-3p-2J2" firstAttribute="top" secondItem="Tpt-bB-6R5" secondAttribute="bottom" constant="-47" id="hup-Q1-BcE"/>
+                            <constraint firstItem="4e4-Or-Qac" firstAttribute="trailing" secondItem="Tpt-bB-6R5" secondAttribute="trailing" id="pZY-32-9OU"/>
                             <constraint firstItem="ZK8-Tx-1w8" firstAttribute="bottom" secondItem="4e4-Or-Qac" secondAttribute="bottom" id="sia-HB-vsT"/>
+                            <constraint firstItem="Tpt-bB-6R5" firstAttribute="top" secondItem="4e4-Or-Qac" secondAttribute="top" id="t3Z-aW-W2S"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Gallery" image="photo.on.rectangle.angled" catalog="system" id="Cg6-Dd-EbX"/>
                     <connections>
                         <outlet property="collectionView" destination="ZK8-Tx-1w8" id="R6C-hq-SPP"/>
                         <outlet property="emptyView" destination="Tpt-bB-6R5" id="U8O-vc-N0I"/>
+                        <outlet property="segmentedControl" destination="39o-3p-2J2" id="8eg-D3-EiX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OSy-pZ-vNc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
