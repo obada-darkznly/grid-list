@@ -222,6 +222,7 @@ extension ImageListViewController: UINavigationControllerDelegate, UIImagePicker
                                           "Title:",
                                           and: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document.")
             viewModel.save(galleryItem)
+            Toast.show(message: "Image saved!", controller: self)
         }
     }
 }
