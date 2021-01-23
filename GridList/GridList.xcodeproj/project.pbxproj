@@ -35,6 +35,7 @@
 		AFF9F24725BCC5430045CBCB /* TrashCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFF9F24625BCC5430045CBCB /* TrashCell.xib */; };
 		AFF9F24A25BCC8410045CBCB /* TrashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF9F24925BCC8410045CBCB /* TrashViewController.swift */; };
 		AFF9F24D25BCC9320045CBCB /* TrashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF9F24C25BCC9320045CBCB /* TrashViewModel.swift */; };
+		AFF9F25325BCE72A0045CBCB /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF9F25225BCE72A0045CBCB /* Toast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		AFF9F24625BCC5430045CBCB /* TrashCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrashCell.xib; sourceTree = "<group>"; };
 		AFF9F24925BCC8410045CBCB /* TrashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashViewController.swift; sourceTree = "<group>"; };
 		AFF9F24C25BCC9320045CBCB /* TrashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashViewModel.swift; sourceTree = "<group>"; };
+		AFF9F25225BCE72A0045CBCB /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				AF4E328E25BC21BA00005BBC /* AbstractNibView.swift */,
 				AFF9F22E25BCA0350045CBCB /* CustomActionSheet.swift */,
 				AFF9F24325BCC44C0045CBCB /* TrashCell.swift */,
+				AFF9F25225BCE72A0045CBCB /* Toast.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				AFB7379225BC1F5800CB6101 /* UIButton.swift in Sources */,
 				AFF9F22F25BCA0350045CBCB /* CustomActionSheet.swift in Sources */,
 				AF0434EB25BAD91A000F9073 /* SceneDelegate.swift in Sources */,
+				AFF9F25325BCE72A0045CBCB /* Toast.swift in Sources */,
 				AFF9F24425BCC44C0045CBCB /* TrashCell.swift in Sources */,
 				AF4C046225BAEE6700274C82 /* GalleryItem.swift in Sources */,
 			);

@@ -107,6 +107,7 @@ class ImageListViewModel {
         let exessDate = passedTime.addingTimeInterval(60000)
         if Date() >= exessDate {
             for (index, element) in galleryItems.enumerated() {
+                // If the
                 if index >= 10 {
                     galleryItems.removeLast()
                     imagesHeightArray.removeLast()
