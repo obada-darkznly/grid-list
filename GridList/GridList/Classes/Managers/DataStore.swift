@@ -14,11 +14,13 @@ class DataStore: NSObject{
     private let CACHE_KEY_GALLERY_LIST = "CACHE_KEY_GALLERY_LIST"
     private let CACHE_KEY_GALLERY_ITEMS_HEIGHT = "CACHE_KEY_GALLERY_ITEMS_HEIGHT"
     private let CACHE_KEY_DELETED_GALLERY_LIST = "CACHE_KEY_DELETED_GALLERY_LIST"
+    private let CACHE_KEY_LAST_DELETION_TIMER = "CACHE_KEY_LAST_DELETION_TIMER"
     
     // MARK: Temp data holders
     private var _galleryItems: [GalleryItem]?
     private var _deletedGalleryList: [GalleryItem]?
     private var _galleryItemsHeight: [Int]?
+    private var _lastDeletionTimer: Date?
     
     // MARK: Singelton
     public static var shared: DataStore = DataStore()
@@ -109,6 +111,19 @@ class DataStore: NSObject{
         }
     }
     
+    var lastDeletionTimer: Date? {
+        set {
+            _lastDeletionTimer = newValue
+            saveDateWithKey(dateToStore: _lastDeletionTimer!, key: CACHE_KEY_LAST_DELETION_TIMER)
+        }
+        get {
+            if (_lastDeletionTimer == nil) {
+                _lastDeletionTimer = loadDateWithKey(key: CACHE_KEY_LAST_DELETION_TIMER)
+            }
+            return _lastDeletionTimer
+        }
+    }
+    
     // MARK: Caching methods
     
     public func loadStringForKey(key:String) -> String {
@@ -118,6 +133,16 @@ class DataStore: NSObject{
     
     public func saveStringWithKey(stringToStore: String, key: String) {
         UserDefaults.standard.set(stringToStore, forKey: key);
+        UserDefaults.standard.synchronize();
+    }
+    
+    public func loadDateWithKey(key:String) -> Date {
+        let storedDate = UserDefaults.standard.object(forKey: key) as? Date ?? Date()
+        return storedDate;
+    }
+    
+    public func saveDateWithKey(dateToStore: Date, key: String) {
+        UserDefaults.standard.set(dateToStore, forKey: key);
         UserDefaults.standard.synchronize();
     }
     
