@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 
 
@@ -18,9 +19,7 @@ class GalleryHeader: UICollectionReusableView {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    
-    //MARK: loadable delegate
-    var delegate: LoadableDelegate? = nil
+    var activityIndicatorSubscriber: AnyCancellable?
     
     
     // MARK: View's life cycle
@@ -59,10 +58,7 @@ extension GalleryHeader: UITextFieldDelegate {
         textField.resignFirstResponder()
         return false
     }
-}
-
-// MARK:- Loadable delegate
-extension GalleryHeader: LoadableDelegate {
+    
     func isLoading(loading: Bool) {
         // if loading show indicator
         if loading {
@@ -70,7 +66,7 @@ extension GalleryHeader: LoadableDelegate {
             activityIndicator.isHidden = false
             activityIndicator.startAnimating()
             // hide the loader after 1 second
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 self.activityIndicator.stopAnimating()
                 self.activityIndicator.isHidden = true
                 self.searchImage.isHidden = false
@@ -78,3 +74,4 @@ extension GalleryHeader: LoadableDelegate {
         }
     }
 }
+

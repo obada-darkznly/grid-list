@@ -24,6 +24,8 @@ class ImageListViewController: UIViewController {
     /// Listens to any changes to the data array to refresh the table view
     var shouldRefreshCollectionView: AnyCancellable?
     
+    var showLoader = CurrentValueSubject<Bool, Never>(false)
+    
     /// The fixed size for items layout
     private var fixedLayout: UICollectionViewFlowLayout {
         let _layout = UICollectionViewFlowLayout()
@@ -111,7 +113,7 @@ class ImageListViewController: UIViewController {
     
     // MARK: Actions
     @objc func cameraButtonPressed() {
-        loadingDelegate?.isLoading(loading: true)
+        showLoader.send(true)
         let vc = UIImagePickerController()
         vc.sourceType = .camera
         vc.allowsEditing = true
@@ -175,7 +177,9 @@ extension ImageListViewController: UICollectionViewDelegate, UICollectionViewDat
                                                                                    withReuseIdentifier: viewModel.headerId,
                                                                                    for: indexPath) as? GalleryHeader else { return UICollectionReusableView() }
             headerView.cameraButton.addTarget(self, action: #selector(cameraButtonPressed), for: .touchUpInside)
-            headerView.delegate = loadingDelegate
+            headerView.activityIndicatorSubscriber = showLoader.sink(receiveValue: { (showLoader) in
+                headerView.isLoading(loading: showLoader)
+            })
             return headerView
         default:
             return UICollectionReusableView()
@@ -224,7 +228,7 @@ extension ImageListViewController: UINavigationControllerDelegate, UIImagePicker
                                           and: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document.")
             viewModel.save(galleryItem)
             self.view.makeToast("Image added!")
-            loadingDelegate?.isLoading(loading: false)
+            showLoader.send(false)
         }
     }
 }
@@ -232,9 +236,9 @@ extension ImageListViewController: UINavigationControllerDelegate, UIImagePicker
 // MARK:- empty view delegate
 extension ImageListViewController: EmptyViewDelegate {
     func actionButtonPressed() {
-        loadingDelegate?.isLoading(loading: true)
+        showLoader.send(true)
         viewModel.createGalleryItemsArray { (_) in
-            self.loadingDelegate?.isLoading(loading: false)
+            self.showLoader.send(false)
         }
     }
 }
