@@ -111,6 +111,7 @@ class ImageListViewController: UIViewController {
     
     // MARK: Actions
     @objc func cameraButtonPressed() {
+        loadingDelegate?.isLoading(loading: true)
         let vc = UIImagePickerController()
         vc.sourceType = .camera
         vc.allowsEditing = true
@@ -222,7 +223,8 @@ extension ImageListViewController: UINavigationControllerDelegate, UIImagePicker
                                           "Title:",
                                           and: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document.")
             viewModel.save(galleryItem)
-            Toast.show(message: "Image saved!", controller: self)
+            self.view.makeToast("Image added!")
+            loadingDelegate?.isLoading(loading: false)
         }
     }
 }
